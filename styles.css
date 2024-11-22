@@ -1,0 +1,64 @@
+/* styles.css */
+
+/* Header Styling */
+#main-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Same as default button font */
+  font-weight: 400; /* Match the button's font weight */
+  font-size: 1.75rem; /* Adjust the size to be similar to button text */
+}
+
+/* Center heading in the sidebar */
+h2 {
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
+
+/* Folder Styling */
+.list-group-item {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.list-group-item i {
+  font-size: 1.2rem;
+}
+
+
+/* Inbox Styling */
+.sender-name {
+  font-size: 1.1rem; 
+  font-weight: bold;
+}
+
+.subject-title {
+  font-size: 1rem; 
+  font-weight: normal;
+  margin-top: 0.2rem; 
+}
+
+.preview-text {
+  font-size: 0.9rem; 
+  color: #555;
+}
+
+/* Label Styling */
+.labels-section .label {
+  cursor: pointer; /* Changes the cursor to a pointer when hovering */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #f8f9fa; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer p {
+  color: #333;
+  font-size: 14px; 
+}

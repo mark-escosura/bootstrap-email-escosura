@@ -4,7 +4,7 @@
   "description": "## Project Overview",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest",
     "watch": "chokidar 'index.html' -c 'npm test'"
   },
   "keywords": [],
