@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid vh-100 d-flex flex-column">
         <!-- Header -->
-        <header class="row bg-primary text-white py-3 border border-primary" role="banner">
+        <header class="row bg-primary text-white py-3" role="banner">
             <nav class="d-flex justify-content-between align-items-center w-100">
                 <!-- Logo and Title Section -->
                 <div class="d-flex align-items-center">
@@ -31,20 +31,24 @@
                     <button class="btn btn-light me-2">
                         <i class="bi bi-gear"></i> Settings
                     </button>
-                    <button class="btn btn-light">
-                        <i class="bi bi-person-circle"></i> Profile
+                    <button class="btn me-2">
+                        <img src="https://via.placeholder.com/50" alt="User Avatar" class="rounded-circle">
                     </button>
                 </div>
             </nav>
         </header>
         <!-- Main -->
-        <main class="row flex-grow-1" role="main">
+        <main class="row flex-grow-1 g-0" role="main">
             <!-- Folder -->
-            <section class="col-12 col-md-3 col-lg-2 bg-light p-3 list-group" aria-label="Email folders">
+            <section class="col-12 col-md-2 col-lg-2 bg-light p-3 list-group" aria-label="Email folders">
                 <h2 class="mb-3">Folders</h2>
                 <a href="#" class="list-group-item list-group-item-action active d-flex align-items-center"
                     aria-current="page">
                     <i class="bi bi-inbox-fill me-2" aria-hidden="true"></i> Inbox
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
                     <i class="bi bi-send-fill me-2" aria-hidden="true"></i> Sent
@@ -74,12 +78,12 @@
             </section>
 
             <!-- Inbox -->
-            <section class="col-12 col-md-5 col-lg-4 bg-white p-3 border-end d-flex flex-column"
+            <section class="col-12 col-md-4 col-lg-4 bg-white p-3 border-end d-flex flex-column"
                 aria-labelledby="email-list-title">
                 <h2 id="email-list-title">Inbox</h2>
                 <div class="flex-grow-1 overflow-auto">
                     <!-- Email Card 1 -->
-                    <div class="card mb-3 position-relative">
+                    <div class="card mb-3 position-relative" data-id="1">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">10:30 PM</p>
                             <p class="text-primary mb-1 sender-name">John Doe</p>
@@ -89,7 +93,7 @@
                         </div>
                     </div>
                     <!-- Email Card 2 -->
-                    <div class="card mb-3 position-relative">
+                    <div class="card mb-3 position-relative" data-id="2">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">Yesterday</p>
                             <p class="text-primary mb-1 sender-name">Jane Smith</p>
@@ -99,7 +103,7 @@
                         </div>
                     </div>
                     <!-- Email Card 3 -->
-                    <div class="card mb-3 position-relative">
+                    <div class="card mb-3 position-relative" data-id="3">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">Mar 15</p>
                             <p class="text-primary mb-1 sender-name">Invoicing Team</p>
@@ -111,16 +115,64 @@
                 </div>
             </section>
 
-
-            <section class="col-12 col-md-5 col-lg-4 bg-light p-3" aria-labelledby="display-email-title">
-                <article role="region" aria-labelledby="displayed-email-title">
-                    <h2 id="displayed-email-title">Email Subject</h2>
-                    <p>Email body</p>
-                    <div>
-                        <button class="btn btn-primary" aria-label="Reply to email">Reply</button>
-                        <button class="btn btn-primary" aria-label="Compose a new email">Compose</button>
+            <!-- Email Body -->
+            <section class="col-12 col-md-6 col-lg-6 p-3">
+                <div class="card h-100">
+                    <!-- Subject and Buttons Section -->
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Email Subject</h5>
+                        <div class="d-flex">
+                            <button class="btn btn-light me-2" aria-label="Reply">
+                                <i class="bi bi-reply"></i>
+                            </button>
+                            <button class="btn btn-light me-2" aria-label="Trash">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <button class="btn btn-light" aria-label="Archive">
+                                <i class="bi bi-archive"></i>
+                            </button>
+                        </div>
                     </div>
-                </article>
+
+                    <!-- Sender Information Section -->
+                    <div class="card-body">
+                        <div class="row mb-3 align-items-center">
+                            <!-- Avatar -->
+                            <div class="col-auto">
+                                <img src="https://via.placeholder.com/50" alt="User Avatar" class="rounded-circle">
+                            </div>
+                            <!-- Name and Email -->
+                            <div class="col">
+                                <p class="mb-0 fw-bold">John Doe</p>
+                                <p class="text-muted small">johndoe@example.com</p>
+                            </div>
+                        </div>
+
+                        <!-- To and Cc Section -->
+                        <div class="mb-3 text-muted">
+                            <p class="mb-1"><strong>To:</strong> recipient@example.com</p>
+                            <p class="mb-0"><strong>Cc:</strong> cc@example.com</p>
+                        </div>
+
+                        <!-- Email Body Section -->
+                        <div class="mb-3">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+                                libero. Sed
+                                cursus ante dapibus diam.
+                            </p>
+                        </div>
+
+                        <!-- Attachment Section -->
+                        <div>
+                            <p class="fw-bold mb-3">Attachment:</p>
+                            <!-- Larger Loader Placeholder -->
+                            <div class="card bg-light placeholder-glow" style="height: 200px; width: 100%;">
+                                <div class="placeholder w-100 h-100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <!-- Footer -->
