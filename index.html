@@ -88,7 +88,7 @@
                 <h2 id="email-list-title">Inbox</h2>
                 <div class="flex-grow-1 overflow-auto">
                     <!-- Email Card 1 -->
-                    <div class="card mb-3 position-relative" data-id="1">
+                    <div class="card mb-3 position-relative" data-id="1" onclick="loadEmail(1)">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">10:30 PM</p>
                             <p class="text-primary mb-1 sender-name">John Doe</p>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <!-- Email Card 2 -->
-                    <div class="card mb-3 position-relative" data-id="2">
+                    <div class="card mb-3 position-relative" data-id="2" onclick="loadEmail(2)">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">Yesterday</p>
                             <p class="text-primary mb-1 sender-name">Jane Smith</p>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <!-- Email Card 3 -->
-                    <div class="card mb-3 position-relative" data-id="3">
+                    <div class="card mb-3 position-relative" data-id="3" onclick="loadEmail(3)">
                         <div class="card-body">
                             <p class="text-muted small position-absolute top-0 end-0 m-2">Mar 15</p>
                             <p class="text-primary mb-1 sender-name">Invoicing Team</p>
@@ -125,7 +125,7 @@
                 <div class="card h-100">
                     <!-- Subject and Buttons Section -->
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Email Subject</h5>
+                        <h5 class="mb-0" id="email-subject">Email Subject</h5>
                         <div class="d-flex">
                             <button class="btn btn-light me-2" aria-label="Reply">
                                 <i class="bi bi-reply"></i>
@@ -144,47 +144,47 @@
                         <div class="row mb-3 align-items-center">
                             <!-- Avatar -->
                             <div class="col-auto">
-                                <img src="https://via.placeholder.com/50" alt="User Avatar" class="rounded-circle">
+                                <img src="https://via.placeholder.com/50" alt="User Avatar" class="rounded-circle"
+                                    id="email-avatar">
+                                <!-- Name and Email -->
+                                <div class=" col">
+                                    <p class="mb-0 fw-bold" id="email-sender-name">John Doe</p>
+                                    <p class="text-muted small" id="email-sender-email">johndoe@example.com</p>
+                                </div>
                             </div>
-                            <!-- Name and Email -->
-                            <div class="col">
-                                <p class="mb-0 fw-bold">John Doe</p>
-                                <p class="text-muted small">johndoe@example.com</p>
+
+                            <!-- To and Cc Section -->
+                            <div class="mb-3 text-muted" id="email-recipient">
+                                <p class="mb-1"><strong>To:</strong> recipient@example.com</p>
+                                <p class="mb-0"><strong>Cc:</strong> cc@example.com</p>
                             </div>
-                        </div>
 
-                        <!-- To and Cc Section -->
-                        <div class="mb-3 text-muted">
-                            <p class="mb-1"><strong>To:</strong> recipient@example.com</p>
-                            <p class="mb-0"><strong>Cc:</strong> cc@example.com</p>
-                        </div>
-
-                        <!-- Email Body Section -->
-                        <div class="mb-3">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-                                libero. Sed
-                                cursus ante dapibus diam.
-                            </p>
-                        </div>
-
-                        <!-- Attachment Section -->
-                        <div>
-                            <p class="fw-bold mb-3">Attachment:</p>
-                            <!-- Larger Loader Placeholder -->
-                            <div class="card bg-light placeholder-glow" style="height: 200px; width: 100%;">
-                                <div class="placeholder w-100 h-100"></div>
+                            <!-- Email Body Section -->
+                            <div class="mb-3" id="email-body">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+                                    libero. Sed
+                                    cursus ante dapibus diam.
+                                </p>
                             </div>
-                        </div>
 
-                        <!-- Reply Section -->
-                        <div class="mt-4">
-                            <textarea class="form-control mb-2" rows="4"
-                                placeholder="Write your reply here..."></textarea>
-                            <button class="btn btn-primary" aria-label="Reply">Reply</button>
+                            <!-- Attachment Section -->
+                            <div>
+                                <p class="fw-bold mb-3">Attachment:</p>
+                                <!-- Larger Loader Placeholder -->
+                                <div class="card bg-light placeholder-glow" style="height: 200px; width: 100%;">
+                                    <div class="placeholder w-100 h-100"></div>
+                                </div>
+                            </div>
+
+                            <!-- Reply Section -->
+                            <div class="mt-4">
+                                <textarea class="form-control mb-2" rows="4"
+                                    placeholder="Write your reply here..."></textarea>
+                                <button class="btn btn-primary" aria-label="Reply">Reply</button>
+                            </div>
                         </div>
                     </div>
-                </div>
             </section>
         </main>
         <!-- Footer -->
@@ -192,6 +192,51 @@
             <p class="mb-0">&copy; 2024 SendFlow. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        // Function to load email content dynamically
+        function loadEmail(emailId) {
+            const emails = {
+                1: {
+                    subject: "Project Update",
+                    senderName: "John Doe",
+                    senderEmail: "johndoe@example.com",
+                    recipient: "recipient@example.com",
+                    cc: "cc@example.com",
+                    body: "Here’s a quick update on the project progress. Let me know your thoughts...",
+                    avatar: "https://via.placeholder.com/50"
+                },
+                2: {
+                    subject: "Meeting Reminder",
+                    senderName: "Jane Smith",
+                    senderEmail: "janesmith@example.com",
+                    recipient: "recipient@example.com",
+                    cc: "cc@example.com",
+                    body: "Don't forget about the meeting scheduled for tomorrow at 3 PM...",
+                    avatar: "https://via.placeholder.com/50"
+                },
+                3: {
+                    subject: "Invoice",
+                    senderName: "Invoicing Team",
+                    senderEmail: "invoicing@example.com",
+                    recipient: "recipient@example.com",
+                    cc: "cc@example.com",
+                    body: "The invoice for your recent purchase is attached. Please review and confirm...",
+                    avatar: "https://via.placeholder.com/50"
+                }
+            };
+
+            // Get the email data based on the emailId
+            const email = emails[emailId];
+
+            // Update the email body section with the content of the clicked email
+            document.getElementById('email-subject').textContent = email.subject;
+            document.getElementById('email-sender-name').textContent = email.senderName;
+            document.getElementById('email-sender-email').textContent = email.senderEmail;
+            document.getElementById('email-recipient').innerHTML = `<p class="mb-1"><strong>To:</strong> ${email.recipient}</p><p class="mb-0"><strong>Cc:</strong> ${email.cc}</p>`;
+            document.getElementById('email-body').innerHTML = `<p>${email.body}</p>`;
+            document.getElementById('email-avatar').src = email.avatar;
+        }
+    </script>
 </body>
 
 </html>
