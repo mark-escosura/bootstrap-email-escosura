@@ -30,6 +30,17 @@ h2 {
 
 
 /* Inbox Styling */
+.inbox-card .card {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.inbox-card .card:hover {
+  background-color: #e9ecef;
+  transform: translateY(1px);
+  cursor: pointer;
+}
+
 .sender-name {
   font-size: 1.1rem; 
   font-weight: bold;
